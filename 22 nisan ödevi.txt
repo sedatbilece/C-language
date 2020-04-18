@@ -1,0 +1,85 @@
+#include <stdio.h>
+// benzerlik hariç hepsi ilk 3 şart sağlanıyor
+
+struct student{
+	char isim[5][20];
+int uzunluk;
+int eluz[5];
+int sessiz[5];
+int seslis[5];
+
+	
+};
+int i,j,k;
+int a;
+char sesli[8]="aeıiuüoö";
+
+
+void degerata(struct student  *ptr){//struct daki isimlere deger atandı
+	for(i=0;i<5;i++){
+		gets((ptr->isim[i]));
+	}
+
+}
+
+
+
+
+void hesapla(struct student *ptr){// isimlerin uzunluk ve sesli harf deegreleri hesaplanıp struct dizilerine atandı
+	
+	
+	for(i=0;i<5;i++){//uzunluk  bulucu
+	(ptr->eluz[i])=strlen((ptr->isim[i]));
+	
+
+}
+
+
+
+for(i=0;i<5;i++){//sesli harft bulucu
+	a=0;
+	for(j=0;j<ptr->eluz[i];j++){
+		for(k=0;k<8;k++){
+			if(ptr->isim[i][j]==sesli[k]){
+				a+=1;
+			}
+		}
+	}
+	ptr->seslis[i]=a;
+	ptr->sessiz[i]=ptr->eluz[i]-ptr->seslis[i];
+	
+}
+	
+	
+}
+
+void show(struct student *ptr){
+	for(i=0;i<5;i++){
+		printf("%d. kelimenin uzunlugu %d \n",i+1,ptr->eluz[i]);// kelime uzunlukları
+		
+		printf("%d. kelimedeki sesli  %d sessiz %d\n",i+1,ptr->seslis[i],ptr->sessiz[i]);
+		printf("\n");
+		
+		
+		
+	}
+}
+
+
+
+int main (){
+struct student *sedatptr,sedat;
+sedatptr=&sedat;
+
+
+
+degerata(sedatptr);
+
+hesapla(sedatptr);
+
+show(sedatptr);
+
+
+
+
+}
