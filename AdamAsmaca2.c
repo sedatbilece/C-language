@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-
+// GUI olmadan adam asmaca
 
 int main (){
 char mat[20][15]={{"izmir"}, {"adana"}, {"bayburt"}, {"ordu"}, {"giresun"}, {"ankara"}, {"istanbul"}, {"bursa"},
