@@ -9,6 +9,7 @@ int ilkel(int x){
 	}
 	return ret;
 }
+//açıklama
 int digel(int x){
 	int t1,t2,tt=0,ret=0;
 	t1=1+rand()%6;
