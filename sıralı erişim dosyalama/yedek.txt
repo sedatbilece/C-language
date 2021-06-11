@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+main(){
+srand(time(NULL));
+int i;
+int num[5];
+int name[2][5];
+for(i=0;i<5;i++){
+	name[0][i]=97+rand()%25;
+}
+char *p="sedat 1123";
+
+char *p2="xxxxx";
+ FILE *fp;
+ 
+
+  if ((fp = fopen ("dosya1.txt", "w")) == NULL) {
+      printf("Dosya açma hatası!");
+     
+  }
+ fwrite(p, sizeof(p), 1, fp);
+  fwrite(p2, sizeof(p2), 1, fp);
+  fputc("\n",fp);
+  
+  
+  
+  
+  fclose(fp);
+  /*
+for(i=0;i<5;i++){
+	fputc(name[0][i],fp);
+}
+fputc(num[0],fp);
+fclose(fp);
+*/
+	
+}
+

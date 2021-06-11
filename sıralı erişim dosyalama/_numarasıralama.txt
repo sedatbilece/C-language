@@ -1,0 +1,83 @@
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <time.h>
+main(){
+srand(time(NULL));
+int i,j,k,x;
+int num[20];
+char name[20][6];
+char sesli[5]="aeiuo";
+char sessiz[18]="bcdfghjklmnprstvyz";
+
+// rastgele isim ve numara oluşturma
+//not: isim 5 harfli numara 3 basamak oluşturulacaktır
+for(i=0;i<20;i++){
+	
+	
+	
+	for(j=0;j<6;j++){
+		
+     if(j%2==0){
+     	x=rand()%6;
+     	name[i][j]=sesli[x];
+	 }
+else{
+	x=rand()%19;
+     	name[i][j]=sessiz[x];
+}
+		
+	}
+	
+	
+	
+	
+    num[i]=20+rand()%81;//numara atama
+}
+
+
+
+
+FILE *fp;//dosyayı tutan pointer
+
+ if ((fp = fopen ("dosya1.txt", "w")) == NULL) {//dosya açılıyor 
+      printf("Dosya açma hatası!");//açılmazsa hata verir
+     
+  }
+ 
+ 
+ int sakla;
+  	for(i=0;i<20;i++ ){
+  		
+		  for(j=0;j<20;j++){
+  			
+			  if(num[j]>num[j+1]){
+  				
+				  sakla=num[j];
+  				
+				  num[j]=num[j+1];
+  			
+			  	num[j+1]=sakla;
+			  }
+		  }
+	  }
+ 
+ for(j=0;j<20;j++){
+ 	
+ 	
+ 		
+  fprintf(fp,"%d",num[j]);//yanına numara yazılıyor
+  fprintf(fp," ");
+  
+ 	  for(i=0;i<5;i++){//isim yazılıyor
+	fputc(name[j][i],fp);
+             
+			 }
+
+  fprintf(fp,"\n");//alt satıra geçiliyor
+ 	
+ }
+
+	fclose(fp);
+}

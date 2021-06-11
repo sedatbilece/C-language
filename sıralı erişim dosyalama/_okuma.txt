@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+main(){
+srand(time(NULL));
+
+ char ch;
+
+FILE *fp;//dosyayı tutan pointer
+
+ if ((fp = fopen ("dosya1.txt", "r")) == NULL) {//dosya açılıyor 
+      printf("Dosya açma hatası!");//açılmazsa hata verir
+     
+  }
+  
+ 
+  
+    while((ch = fgetc(fp)) != EOF )//dosya bitimi olana kadar satır satır okur
+       {                           //fgetc satır satır alır
+           printf("%c", ch);       //EOF dosya bitimini gösterir
+       }
+       
+
+	fclose(fp);
+}
+
